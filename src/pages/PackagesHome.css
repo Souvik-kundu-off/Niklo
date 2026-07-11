@@ -35,9 +35,8 @@
   background-color: #ffffff;
   border-radius: 16px;
   display: flex;
-  flex-wrap: wrap;
   padding: 12px;
-  gap: 16px;
+  gap: 8px;
   align-items: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   margin-bottom: 24px;
@@ -47,8 +46,9 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 8px 16px;
+  padding: 8px 12px;
   border-right: 1px solid #e2e8f0;
+  min-width: 0;
 }
 
 .pkg-search-field:nth-last-child(2) {
@@ -81,6 +81,10 @@
 .pkg-input::placeholder {
   color: #94a3b8;
   font-weight: 600;
+}
+
+.pkg-input {
+  width: 100%;
 }
 
 .pkg-value-row {
@@ -118,6 +122,8 @@
   font-weight: 700;
   color: #0f172a;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Custom Popovers */
@@ -425,20 +431,22 @@
 }
 
 .pkg-style-card {
-  background-color: transparent;
+  background-color: #ffffff;
   border-radius: 16px;
-  padding: 16px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 16px;
-  border: none;
+  border: 1px solid #e2e8f0;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: all 0.2s;
 }
 
 .pkg-style-card:hover {
+  border-color: #0052ff;
+  box-shadow: 0 10px 20px rgba(0, 82, 255, 0.05);
   transform: translateY(-4px);
 }
 

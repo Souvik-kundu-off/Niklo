@@ -11,7 +11,23 @@ import './PackageDetails.css';
 const PackageDetails: React.FC = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('Overview');
-  const [selectedDate, setSelectedDate] = useState('');
+  const [date, setDate] = useState('22 May 2024');
+  const [showDatePicker, setShowDatePicker] = useState(false);
+  const [guests, setGuests] = useState({ adults: 2, children: 0 });
+  const [showGuestPicker, setShowGuestPicker] = useState(false);
+
+  const handleGuestChange = (type: 'adults' | 'children', op: 'add' | 'sub') => {
+    setGuests(prev => {
+      const newVal = op === 'add' ? prev[type] + 1 : Math.max(0, prev[type] - 1);
+      if (type === 'adults' && newVal < 1) return prev;
+      return { ...prev, [type]: newVal };
+    });
+  };
+
+  const getGuestsString = () => {
+    const totalGuests = guests.adults + guests.children;
+    return `${totalGuests} Traveler${totalGuests > 1 ? 's' : ''}`;
+  };
 
   return (
     <div className="pkg-detail-container">
@@ -165,24 +181,63 @@ const PackageDetails: React.FC = () => {
               </div>
 
               <div className="pkg-booking-form">
-                <div className="pkg-form-group">
+                <div className="pkg-form-group relative" onClick={() => { setShowDatePicker(!showDatePicker); setShowGuestPicker(false); }}>
                   <label>Select Date</label>
                   <div className="pkg-form-input">
                     <Calendar size={18} color="#64748b" />
-                    <input type="text" placeholder="Choose a Date..." value={selectedDate} onChange={e => setSelectedDate(e.target.value)} />
+                    <span className="pkg-text-val">{date}</span>
                   </div>
+                  {showDatePicker && (
+                    <div className="custom-calendar-popover" onClick={e => e.stopPropagation()}>
+                      <div className="calendar-header">
+                        <button>&lt;</button>
+                        <span>May 2024</span>
+                        <button>&gt;</button>
+                      </div>
+                      <div className="calendar-grid">
+                        {['Su','Mo','Tu','We','Th','Fr','Sa'].map(d => <div key={d} className="cal-day-header">{d}</div>)}
+                        <div className="cal-empty"></div><div className="cal-empty"></div><div className="cal-empty"></div>
+                        {Array.from({length: 31}, (_, i) => i + 1).map(d => (
+                          <div 
+                            key={d} 
+                            className={`cal-day ${date === `${d} May 2024` ? 'selected' : ''}`} 
+                            onClick={() => { setDate(`${d} May 2024`); setShowDatePicker(false); }}
+                          >
+                            {d}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
 
-                <div className="pkg-form-group">
+                <div className="pkg-form-group relative" onClick={() => { setShowGuestPicker(!showGuestPicker); setShowDatePicker(false); }}>
                   <label>Travelers</label>
                   <div className="pkg-form-input">
                     <Users size={18} color="#64748b" />
-                    <select>
-                      <option>2 Adults</option>
-                      <option>3 Adults</option>
-                      <option>4 Adults</option>
-                    </select>
+                    <span className="pkg-text-val">{getGuestsString()}</span>
                   </div>
+                  {showGuestPicker && (
+                    <div className="custom-guest-popover" onClick={e => e.stopPropagation()}>
+                      <div className="guest-row">
+                        <div className="guest-info"><span>Adults</span><small>12+ yrs</small></div>
+                        <div className="guest-controls">
+                          <button onClick={() => handleGuestChange('adults', 'sub')}>-</button>
+                          <span>{guests.adults}</span>
+                          <button onClick={() => handleGuestChange('adults', 'add')}>+</button>
+                        </div>
+                      </div>
+                      <div className="guest-row">
+                        <div className="guest-info"><span>Children</span><small>2-12 yrs</small></div>
+                        <div className="guest-controls">
+                          <button onClick={() => handleGuestChange('children', 'sub')}>-</button>
+                          <span>{guests.children}</span>
+                          <button onClick={() => handleGuestChange('children', 'add')}>+</button>
+                        </div>
+                      </div>
+                      <button className="guest-done-btn" onClick={() => setShowGuestPicker(false)}>Done</button>
+                    </div>
+                  )}
                 </div>
               </div>
 

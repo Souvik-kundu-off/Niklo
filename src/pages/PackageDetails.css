@@ -460,3 +460,156 @@
   font-size: 0.95rem;
   text-decoration: none;
 }
+
+.relative {
+  position: relative;
+  cursor: pointer;
+}
+
+.pkg-text-val {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Custom Popovers */
+.custom-calendar-popover,
+.custom-guest-popover {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  z-index: 100;
+  width: 320px;
+  cursor: default;
+}
+
+/* Calendar */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.calendar-header button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #64748b;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  text-align: center;
+}
+
+.cal-day-header {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+
+.cal-day {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+}
+
+.cal-day:hover {
+  background-color: #f1f5f9;
+}
+
+.cal-day.selected {
+  background-color: #0052ff;
+  color: #ffffff;
+}
+
+/* Guest Picker */
+.guest-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.guest-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.guest-info span {
+  font-weight: 700;
+  color: #0f172a;
+  font-size: 0.95rem;
+}
+
+.guest-info small {
+  color: #64748b;
+  font-size: 0.75rem;
+}
+
+.guest-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.guest-controls button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #0052ff;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.guest-controls button:hover {
+  background-color: #f1f5f9;
+}
+
+.guest-controls span {
+  font-weight: 700;
+  color: #0f172a;
+  min-width: 12px;
+  text-align: center;
+}
+
+.guest-done-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #0052ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.guest-done-btn:hover {
+  background-color: #0044cc;
+}
