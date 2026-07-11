@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
-  ArrowLeft, Calendar, Users, Home as HomeIcon, CheckCircle2,
+  ArrowLeft, Calendar, Users, CheckCircle2,
   ChevronUp, ChevronDown, Plus, ShieldCheck, FileText, Lock, Phone
 } from 'lucide-react';
 import './PackageCheckout.css';

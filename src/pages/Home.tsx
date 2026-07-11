@@ -144,6 +144,8 @@ const Home: React.FC = () => {
     e.preventDefault();
     if (activePill === 'Cabs') {
       navigate(`/cabs?from=${encodeURIComponent(leavingFrom)}&to=${encodeURIComponent(goingTo)}`);
+    } else if (activePill === 'Hotels') {
+      navigate('/hotels');
     } else {
       navigate(`/buses?from=${encodeURIComponent(leavingFrom)}&to=${encodeURIComponent(goingTo)}`);
     }
@@ -270,7 +272,7 @@ const Home: React.FC = () => {
             </div>
             <h3 className="option-title">Hotels</h3>
             <p className="option-desc">Find comfortable stays</p>
-            <a href="#hotels" className="option-link" onClick={(e) => e.preventDefault()}>
+            <a href="/hotels" className="option-link" onClick={(e) => { e.preventDefault(); navigate('/hotels'); }}>
               Find routes &rarr;
             </a>
           </div>

@@ -11,6 +11,11 @@ import PackagesHome from './pages/PackagesHome';
 import PackagesList from './pages/PackagesList';
 import PackageDetails from './pages/PackageDetails';
 import PackageCheckout from './pages/PackageCheckout';
+import HotelsHome from './pages/HotelsHome';
+import HotelsList from './pages/HotelsList';
+import HotelDetails from './pages/HotelDetails';
+import HotelAvailability from './pages/HotelAvailability';
+import HotelCheckout from './pages/HotelCheckout';
 
 function App() {
   return (
@@ -28,6 +33,11 @@ function App() {
         <Route path="/packages/search" element={<PackagesList />} />
         <Route path="/packages/checkout" element={<PackageCheckout />} />
         <Route path="/packages/:id" element={<PackageDetails />} />
+        <Route path="/hotels" element={<HotelsHome />} />
+        <Route path="/hotels/search" element={<HotelsList />} />
+        <Route path="/hotels/:id" element={<HotelDetails />} />
+        <Route path="/hotels/:id/availability" element={<HotelAvailability />} />
+        <Route path="/hotels/:id/checkout" element={<HotelCheckout />} />
       </Routes>
     </Router>
   );
