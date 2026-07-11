@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Globe, Package, HelpCircle, User, ChevronDown } from 'lucide-react';
+import { Globe, Package, User, ChevronDown } from 'lucide-react';
 import nikloLogoBlue from '../assets/Niklo main Logo 1.svg';
 import nikloLogoWhite from '../assets/Niklo main Logo(White) 1.svg';
 import './Navbar.css';
@@ -54,17 +54,35 @@ const Navbar: React.FC<NavbarProps> = ({ theme = 'white' }) => {
             )}
           </div>
 
-          {/* Packages */}
-          <button className="nav-item" onClick={() => navigate('/packages')}>
-            <Package size={18} />
-            <span>Packages</span>
-          </button>
-          
-          {/* Help */}
-          <button className="nav-item">
-            {theme === 'blue' && <HelpCircle size={18} />}
-            <span>Help</span>
-          </button>
+          {theme === 'blue' ? (
+            <>
+              <button className="nav-item" onClick={() => navigate('/bookings')}>
+                <span>Bookings</span>
+              </button>
+              <button className="nav-item" onClick={() => navigate('/wallet')}>
+                <span>Wallet</span>
+              </button>
+              <button className="nav-item" onClick={() => navigate('/offers')}>
+                <span>Offers</span>
+              </button>
+              <button className="nav-item" onClick={() => alert('Help Center')}>
+                <span>Help</span>
+              </button>
+            </>
+          ) : (
+            <>
+              {/* Packages */}
+              <button className="nav-item" onClick={() => navigate('/packages')}>
+                <Package size={18} />
+                <span>Packages</span>
+              </button>
+              
+              {/* Help */}
+              <button className="nav-item">
+                <span>Help</span>
+              </button>
+            </>
+          )}
         </nav>
 
         {/* Profile Dropdown */}
@@ -80,7 +98,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme = 'white' }) => {
           </button>
           {showProfileMenu && (
             <div className="profile-dropdown-menu">
-              <button type="button" onClick={() => alert('Viewing Bookings...')}>My Bookings</button>
+              <button type="button" onClick={() => { navigate('/bookings'); setShowProfileMenu(false); }}>My Bookings</button>
               <button type="button" onClick={() => alert('Viewing Profile...')}>Profile</button>
               <button type="button" onClick={() => alert('Settings')}>Settings</button>
               {theme === 'white' && <hr className="dropdown-hr" />}

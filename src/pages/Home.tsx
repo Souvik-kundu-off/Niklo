@@ -146,6 +146,8 @@ const Home: React.FC = () => {
       navigate(`/cabs?from=${encodeURIComponent(leavingFrom)}&to=${encodeURIComponent(goingTo)}`);
     } else if (activePill === 'Hotels') {
       navigate('/hotels');
+    } else if (activePill === 'Outdoor') {
+      navigate('/experiences');
     } else {
       navigate(`/buses?from=${encodeURIComponent(leavingFrom)}&to=${encodeURIComponent(goingTo)}`);
     }
@@ -160,7 +162,7 @@ const Home: React.FC = () => {
   };
 
   const handleAiPlannerClick = () => {
-    alert('AI Trip Planner activated! Planning your personalized itinerary...');
+    navigate('/ai-planner');
   };
 
   return (
@@ -283,7 +285,7 @@ const Home: React.FC = () => {
             </div>
             <h3 className="option-title">Advenure</h3>
             <p className="option-desc">Water sports, safari & more</p>
-            <a href="#adventure" className="option-link" onClick={(e) => e.preventDefault()}>
+            <a href="/experiences" className="option-link" onClick={(e) => { e.preventDefault(); navigate('/experiences'); }}>
               Find routes &rarr;
             </a>
           </div>

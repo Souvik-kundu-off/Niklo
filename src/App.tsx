@@ -16,6 +16,17 @@ import HotelsList from './pages/HotelsList';
 import HotelDetails from './pages/HotelDetails';
 import HotelAvailability from './pages/HotelAvailability';
 import HotelCheckout from './pages/HotelCheckout';
+import ExperiencesHome from './pages/ExperiencesHome';
+import ExperiencesList from './pages/ExperiencesList';
+import ExperienceDetails from './pages/ExperienceDetails';
+import ExperienceCheckout from './pages/ExperienceCheckout';
+import Offers from './pages/Offers';
+import MyBookings from './pages/MyBookings';
+import Wallet from './pages/Wallet';
+import Referral from './pages/Referral';
+import AiPlanner from './pages/AiPlanner';
+import AiPlannerList from './pages/AiPlannerList';
+import AiPlannerDetails from './pages/AiPlannerDetails';
 
 function App() {
   return (
@@ -38,6 +49,17 @@ function App() {
         <Route path="/hotels/:id" element={<HotelDetails />} />
         <Route path="/hotels/:id/availability" element={<HotelAvailability />} />
         <Route path="/hotels/:id/checkout" element={<HotelCheckout />} />
+        <Route path="/experiences" element={<ExperiencesHome />} />
+        <Route path="/experiences/search" element={<ExperiencesList />} />
+        <Route path="/experiences/:id" element={<ExperienceDetails />} />
+        <Route path="/experiences/:id/checkout" element={<ExperienceCheckout />} />
+        <Route path="/offers" element={<Offers />} />
+        <Route path="/bookings" element={<MyBookings />} />
+        <Route path="/wallet" element={<Wallet />} />
+        <Route path="/referral" element={<Referral />} />
+        <Route path="/ai-planner" element={<AiPlanner />} />
+        <Route path="/ai-planner/search" element={<AiPlannerList />} />
+        <Route path="/ai-planner/breakdown" element={<AiPlannerDetails />} />
       </Routes>
     </Router>
   );
