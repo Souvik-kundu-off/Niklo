@@ -1,0 +1,467 @@
+.auth-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #0052EB;
+  background-size: 100% auto;
+  background-position: left center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  /* aligned to the right, matching illustration on left */
+  padding: 80px 140px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.auth-logo-container {
+  position: absolute;
+  top: 60px;
+  left: 80px;
+  z-index: 10;
+}
+
+.auth-logo-img {
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Auth Card layout */
+.auth-card {
+  background-color: #ffffff;
+  border-radius: 36px;
+  padding: 56px 40px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.auth-title-section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-card-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.auth-card-subtitle {
+  font-size: 0.95rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Forms and Inputs */
+.auth-card-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Custom phone input box with split fields */
+.phone-input-container {
+  display: flex;
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 20px;
+  padding: 12px 20px;
+  gap: 16px;
+  background-color: #ffffff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.phone-input-container:focus-within {
+  border-color: #0052ff;
+  box-shadow: 0 0 0 4px rgba(0, 82, 255, 0.12);
+}
+
+.country-code-section {
+  display: flex;
+  flex-direction: column;
+  width: 90px;
+  border-right: 1px solid #e2e8f0;
+  padding-right: 16px;
+  text-align: left;
+}
+
+.phone-number-section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.input-lbl {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 2px;
+}
+
+.country-code-val {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  padding: 2px 0;
+}
+
+.phone-input-field {
+  border: none;
+  background: transparent;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  width: 100%;
+  padding: 2px 0;
+  outline: none;
+}
+
+.phone-input-field::placeholder {
+  color: #cbd5e1;
+}
+
+/* Name/Email standard input containers */
+.standard-input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 20px;
+  padding: 12px 20px;
+  background-color: #ffffff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.standard-input-container:focus-within {
+  border-color: #0052ff;
+  box-shadow: 0 0 0 4px rgba(0, 82, 255, 0.12);
+}
+
+.standard-input-field {
+  border: none;
+  background: transparent;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  width: 100%;
+  padding: 2px 0;
+  outline: none;
+}
+
+.standard-input-field::placeholder {
+  color: #cbd5e1;
+}
+
+/* Submit Action Button */
+.btn-submit-otp {
+  width: 100%;
+  padding: 18px;
+  border-radius: 35px;
+  background-color: #0052ff;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 82, 255, 0.2);
+  transition: background-color 0.2s, transform 0.2s;
+  margin-top: 8px;
+}
+
+.btn-submit-otp:hover {
+  background-color: #003ecc;
+  transform: translateY(-1px);
+}
+
+/* Footer redirects */
+.auth-footer-text {
+  font-size: 0.95rem;
+  color: #64748b;
+  font-weight: 600;
+  text-align: center;
+}
+
+.auth-footer-link {
+  color: #0052ff;
+  font-weight: 700;
+  margin-left: 6px;
+  text-decoration: none;
+}
+
+.auth-footer-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive configurations */
+@media (max-width: 1200px) {
+  .auth-container {
+    padding: 60px 80px;
+  }
+}
+
+@media (max-width: 992px) {
+  .auth-container {
+    justify-content: center;
+    /* Center on tablets and mobile screens */
+    padding: 60px 40px;
+  }
+
+  .auth-logo-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 40px;
+    align-self: flex-start;
+  }
+
+  .auth-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .auth-container {
+    padding: 40px 20px;
+  }
+
+  .auth-card {
+    padding: 40px 24px;
+  }
+
+  .auth-card-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* --- OTP Modal Styles --- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.otp-modal {
+  background-color: #ffffff;
+  border-radius: 36px;
+  padding: 48px 40px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.btn-close-modal {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-close-modal:hover {
+  background-color: #f1f5f9;
+}
+
+.otp-title-section {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.otp-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.otp-subtitle {
+  font-size: 0.95rem;
+  color: #64748b;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.otp-phone-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.btn-edit-phone {
+  color: #0052ff;
+  font-weight: 700;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.95rem;
+  padding: 0;
+}
+
+/* OTP Code Input Boxes */
+.otp-inputs-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 8px;
+  margin-bottom: 28px;
+  margin-top: 16px;
+}
+
+.otp-box-input {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  border: 1.5px solid #cbd5e1;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: #ffffff;
+}
+
+.otp-box-input:focus {
+  border-color: #0052ff;
+  box-shadow: 0 0 0 3px rgba(0, 82, 255, 0.12);
+}
+
+/* Timer styles */
+.otp-resend-section {
+  text-align: center;
+  margin-bottom: 28px;
+  font-size: 0.95rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.btn-resend-code {
+  color: #0052ff;
+  font-weight: 700;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  padding: 0;
+}
+
+.otp-timer-val {
+  color: #0f172a;
+  font-weight: 700;
+  margin-left: 6px;
+}
+
+/* Verify Button */
+.btn-verify-otp {
+  width: 100%;
+  padding: 18px;
+  border-radius: 35px;
+  background-color: #0052ff;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 82, 255, 0.2);
+  transition: background-color 0.2s, transform 0.2s;
+  margin-bottom: 24px;
+}
+
+.btn-verify-otp:hover {
+  background-color: #003ecc;
+  transform: translateY(-1px);
+}
+
+/* Legal text */
+.otp-legal-text {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  max-width: 320px;
+}
+
+.otp-legal-link {
+  color: #0052ff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.otp-legal-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 576px) {
+  .otp-modal {
+    padding: 36px 20px;
+    border-radius: 28px;
+  }
+  
+  .otp-title {
+    font-size: 1.8rem;
+  }
+  
+  .otp-box-input {
+    width: 42px;
+    height: 42px;
+    font-size: 1.25rem;
+  }
+}
